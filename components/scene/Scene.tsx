@@ -15,7 +15,8 @@ export function Scene() {
     <Canvas
       style={{ position: 'fixed', inset: 0, zIndex: 0 }}
       camera={{ position: [0, 18, 80], fov: 60, near: 0.1, far: 600 }}
-      gl={{ antialias: true }}
+      dpr={[1, 1.5]}
+      gl={{ antialias: false }}
       onCreated={({ scene }) => {
         scene.background = new Color('#040d1a')
         scene.fog = new Fog('#040d1a', 80, 260)
@@ -57,7 +58,7 @@ export function Scene() {
         />
 
         <EffectComposer>
-          <Bloom luminanceThreshold={0.15} luminanceSmoothing={0.9} intensity={0.8} />
+          <Bloom luminanceThreshold={0.15} luminanceSmoothing={0.9} intensity={0.6} mipmapBlur />
           <Vignette eskil={false} offset={0.1} darkness={0.6} />
         </EffectComposer>
       </Suspense>

@@ -22,7 +22,7 @@ function buildHeightmap(geo: PlaneGeometry, scale = 0.06, amplitude = 14) {
 
 export function Terrain() {
   const geo = useMemo(() => {
-    const g = new PlaneGeometry(420, 320, 220, 160)
+    const g = new PlaneGeometry(420, 320, 55, 40)
     buildHeightmap(g)
     return g
   }, [])

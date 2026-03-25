@@ -25,7 +25,7 @@ export function Stars() {
   })
 
   return (
-    <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
+    <Points ref={ref} positions={positions} stride={3}>
       <PointMaterial
         transparent
         color="#cff7ff"

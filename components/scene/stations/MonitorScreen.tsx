@@ -1,6 +1,6 @@
 'use client'
-import { useRef, useState } from 'react'
-import { RenderTexture, Text, PerspectiveCamera } from '@react-three/drei'
+import { useRef, useState, useMemo, useEffect } from 'react'
+import * as THREE from 'three'
 import type { Mesh } from 'three'
 import type { ThreeEvent } from '@react-three/fiber'
 import { useProjectModal } from '@/hooks/useProjectModal'
@@ -13,63 +13,59 @@ interface Props {
   projectIndex: number
 }
 
-function ScreenContent({ project, hovered }: { project: ProjectData; hovered: boolean }) {
-  return (
-    <group>
-      <Text
-        position={[-1.4, 0.78, 0]}
-        fontSize={0.2}
-        color="#00c8e0"
-        anchorX="left"
-        font="/fonts/JetBrainsMono-Regular.ttf"
-      >
-        {`> ${project.name}`}
-      </Text>
+function useScreenTexture(project: ProjectData, hovered: boolean) {
+  return useMemo(() => {
+    const canvas = document.createElement('canvas')
+    canvas.width = 512
+    canvas.height = 300
 
-      {project.stack.slice(0, 3).map((s, i) => (
-        <Text
-          key={s}
-          position={[-1.4 + i * 0.95, 0.42, 0]}
-          fontSize={0.13}
-          color={hovered ? '#00c8e0' : '#005f80'}
-          anchorX="left"
-          font="/fonts/JetBrainsMono-Regular.ttf"
-        >
-          {s}
-        </Text>
-      ))}
+    const ctx = canvas.getContext('2d')!
 
-      {[
-        '─────────────────',
-        'const app = init()',
-        'await deploy(prod)',
-        '✓ running on :3000',
-      ].map((line, i) => (
-        <Text
-          key={i}
-          position={[-1.4, 0.1 - i * 0.26, 0]}
-          fontSize={0.13}
-          color={i === 3 ? '#4fffb0' : 'rgba(0,100,120,0.7)'}
-          anchorX="left"
-          font="/fonts/JetBrainsMono-Regular.ttf"
-        >
-          {line}
-        </Text>
-      ))}
+    // Background
+    ctx.fillStyle = hovered ? '#041520' : '#020c18'
+    ctx.fillRect(0, 0, 512, 300)
 
-      {hovered && (
-        <Text
-          position={[0, -0.78, 0]}
-          fontSize={0.15}
-          color="rgba(0,200,224,0.5)"
-          anchorX="center"
-          font="/fonts/JetBrainsMono-Regular.ttf"
-        >
-          click to open
-        </Text>
-      )}
-    </group>
-  )
+    // Project name
+    ctx.fillStyle = '#00c8e0'
+    ctx.font = '500 18px "JetBrains Mono", monospace'
+    ctx.fillText(`> ${project.name}`, 24, 56)
+
+    // Stack tags
+    ctx.font = '13px "JetBrains Mono", monospace'
+    ctx.fillStyle = hovered ? '#00c8e0' : '#005f80'
+    project.stack.slice(0, 3).forEach((s, i) => {
+      ctx.fillText(s, 24 + i * 162, 100)
+    })
+
+    // Separator line
+    ctx.fillStyle = 'rgba(0,100,120,0.7)'
+    ctx.font = '13px "JetBrains Mono", monospace'
+    ctx.fillText('─────────────────────', 24, 136)
+
+    // Code lines
+    const lines = [
+      { text: 'const app = init()', color: 'rgba(0,100,120,0.7)' },
+      { text: 'await deploy(prod)',  color: 'rgba(0,100,120,0.7)' },
+      { text: '✓ running on :3000', color: '#4fffb0' },
+    ]
+    lines.forEach(({ text, color }, i) => {
+      ctx.fillStyle = color
+      ctx.fillText(text, 24, 168 + i * 28)
+    })
+
+    // Hover hint
+    if (hovered) {
+      ctx.fillStyle = 'rgba(0,200,224,0.5)'
+      ctx.font = '14px "JetBrains Mono", monospace'
+      ctx.textAlign = 'center'
+      ctx.fillText('click to open', 256, 276)
+      ctx.textAlign = 'left'
+    }
+
+    const texture = new THREE.CanvasTexture(canvas)
+    texture.needsUpdate = true
+    return texture
+  }, [project, hovered])
 }
 
 export function MonitorScreen({ position, project, projectIndex }: Props) {
@@ -77,6 +73,14 @@ export function MonitorScreen({ position, project, projectIndex }: Props) {
   const [hovered, setHovered] = useState(false)
   const { openModal } = useProjectModal()
   const { pause } = useScroll()
+  const texture = useScreenTexture(project, hovered)
+
+  // Dispose texture on unmount or when it changes
+  useEffect(() => {
+    return () => {
+      texture.dispose()
+    }
+  }, [texture])
 
   const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation()
@@ -103,13 +107,7 @@ export function MonitorScreen({ position, project, projectIndex }: Props) {
       onPointerOut={handlePointerOut}
     >
       <planeGeometry args={[3.4, 2.0]} />
-      <meshBasicMaterial>
-        <RenderTexture attach="map" anisotropy={16}>
-          <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-          <color attach="background" args={[hovered ? '#041520' : '#020c18']} />
-          <ScreenContent project={project} hovered={hovered} />
-        </RenderTexture>
-      </meshBasicMaterial>
+      <meshBasicMaterial map={texture} />
     </mesh>
   )
 }
