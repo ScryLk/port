@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useActiveSection } from '@/hooks/useActiveSection'
 import { PROJECTS } from '@/data/projects'
+import { useI18n, getProjectDescriptionKey } from '@/lib/i18n'
 
 const WORK_SECTIONS = [
   { section: 'work-a', projects: [PROJECTS[0], PROJECTS[1]], label: '01' },
@@ -11,6 +12,7 @@ const WORK_SECTIONS = [
 
 export function WorkOverlay() {
   const activeSection = useActiveSection()
+  const { t } = useI18n()
 
   const current = WORK_SECTIONS.find(w => w.section === activeSection)
 
@@ -36,14 +38,19 @@ export function WorkOverlay() {
           }}
         >
           <p style={{ fontFamily: 'monospace', fontSize: 10, color: '#00c8e0', letterSpacing: '0.3em', marginBottom: 12 }}>
-            PROJECTS — {current.label}
+            {t('work.label')} — {current.label}
           </p>
-          {current.projects.map(p => (
-            <div key={p.name} style={{ marginBottom: 8 }}>
-              <p style={{ fontSize: 18, fontWeight: 600, color: '#fff' }}>{p.name}</p>
-              <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', maxWidth: 400 }}>{p.description}</p>
-            </div>
-          ))}
+          {current.projects.map(p => {
+            const descKey = getProjectDescriptionKey(p.name)
+            return (
+              <div key={p.name} style={{ marginBottom: 8 }}>
+                <p style={{ fontSize: 18, fontWeight: 600, color: '#fff' }}>{p.name}</p>
+                <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.4)', maxWidth: 400 }}>
+                  {descKey ? t(descKey) : p.description}
+                </p>
+              </div>
+            )
+          })}
         </motion.div>
       )}
     </AnimatePresence>

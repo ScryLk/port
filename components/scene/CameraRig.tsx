@@ -5,13 +5,13 @@ import { CatmullRomCurve3, Vector3 } from 'three'
 import { useScroll } from '@/components/providers/ScrollProvider'
 
 const WAYPOINTS: [number[], number[]][] = [
-  [[0, 18, 80],    [0, 5, 0]],
-  [[-10, 10, 40],  [-5, 4, 0]],
-  [[-20, 8, 0],    [-20, 5, -25]],
-  [[-30, 8, -40],  [-30, 5, -65]],
-  [[-15, 9, -80],  [-15, 5, -105]],
-  [[0, 12, -120],  [0, 5, -140]],
-  [[10, 15, -160], [10, 4, -180]],
+  [[0, 18, 80],    [0, 5, 0]],        // hero
+  [[-10, 10, 40],  [-5, 4, 0]],       // about
+  [[-12, 16, 0],   [-20, 14, -10]],   // work-a  → look at station 1
+  [[-22, 16, -40], [-30, 14, -50]],   // work-b  → look at station 2
+  [[-8, 16, -80],  [-15, 14, -90]],   // work-c  → look at station 3
+  [[0, 12, -120],  [0, 5, -140]],     // stack
+  [[10, 15, -160], [10, 4, -180]],    // contact
 ]
 
 const posCurve = new CatmullRomCurve3(WAYPOINTS.map(w => new Vector3(...(w[0] as [number, number, number]))))

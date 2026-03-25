@@ -1,9 +1,11 @@
 'use client'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useActiveSection } from '@/hooks/useActiveSection'
+import { useI18n } from '@/lib/i18n'
 
 export function HeroOverlay() {
   const active = useActiveSection() === 'hero'
+  const { t } = useI18n()
 
   return (
     <AnimatePresence>
@@ -46,7 +48,7 @@ export function HeroOverlay() {
             transition={{ delay: 0.2, duration: 0.5 }}
             style={{ fontFamily: 'monospace', fontSize: 11, color: '#00c8e0', letterSpacing: '0.3em', marginBottom: 14 }}
           >
-            FULL STACK DEVELOPER
+            {t('hero.label')}
           </motion.p>
 
           <motion.h1
@@ -71,7 +73,7 @@ export function HeroOverlay() {
             transition={{ delay: 0.5, duration: 0.5 }}
             style={{ fontSize: 15, color: '#fff', marginTop: 14 }}
           >
-            Product Builder · IFFar · Panambi, BR
+            {t('hero.subtitle')}
           </motion.p>
 
           <motion.p
@@ -80,7 +82,7 @@ export function HeroOverlay() {
             transition={{ delay: 0.8, duration: 0.6 }}
             style={{ fontFamily: 'monospace', fontSize: 10, color: '#00c8e0', marginTop: 28 }}
           >
-            — scroll to explore —
+            {t('hero.cta')}
           </motion.p>
         </motion.div>
       )}

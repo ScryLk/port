@@ -4,10 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useProjectModal } from '@/hooks/useProjectModal'
 import { useScroll } from '@/components/providers/ScrollProvider'
 import { PROJECTS } from '@/data/projects'
+import { useI18n, getProjectDescriptionKey } from '@/lib/i18n'
 
 export function ProjectModal() {
   const { isOpen, activeIndex, closeModal, navigate } = useProjectModal()
   const { resume } = useScroll()
+  const { t } = useI18n()
   const project = PROJECTS[activeIndex]
 
   const handleClose = useCallback(() => {
@@ -27,6 +29,8 @@ export function ProjectModal() {
   }, [isOpen, handleClose, navigate])
 
   if (!project) return null
+
+  const descKey = getProjectDescriptionKey(project.name)
 
   return (
     <AnimatePresence>
@@ -49,25 +53,32 @@ export function ProjectModal() {
             }}
           />
 
+          <div
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 101,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              pointerEvents: 'none',
+            }}
+          >
           <motion.div
             key={`modal-${activeIndex}`}
-            initial={{ opacity: 0, scale: 0.88, y: 16 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.92, y: 8 }}
+            initial={{ opacity: 0, scale: 0.88 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.92 }}
             transition={{ duration: 0.28, ease: [0.34, 1.56, 0.64, 1] }}
             onClick={(e) => e.stopPropagation()}
             style={{
-              position: 'fixed',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              zIndex: 101,
               width: 'min(640px, 92vw)',
               maxHeight: '90vh',
               overflowY: 'auto',
               background: '#040d1a',
               border: '0.5px solid rgba(0, 200, 224, 0.25)',
               borderRadius: 12,
+              pointerEvents: 'auto',
             }}
           >
             {/* Tabs */}
@@ -120,7 +131,7 @@ export function ProjectModal() {
                   letterSpacing: '0.3em',
                   marginBottom: 6,
                 }}>
-                  {`PROJECT // 0${activeIndex + 1}`}
+                  {`${t('modal.project')} // 0${activeIndex + 1}`}
                 </p>
                 <h2 style={{
                   fontSize: 22,
@@ -134,7 +145,7 @@ export function ProjectModal() {
 
               <button
                 onClick={handleClose}
-                aria-label="Fechar modal"
+                aria-label={t('modal.close')}
                 style={{
                   width: 28,
                   height: 28,
@@ -162,7 +173,7 @@ export function ProjectModal() {
                 lineHeight: 1.7,
                 marginBottom: 18,
               }}>
-                {project.description}
+                {descKey ? t(descKey) : project.description}
               </p>
 
               <p style={{
@@ -172,7 +183,7 @@ export function ProjectModal() {
                 letterSpacing: '0.2em',
                 marginBottom: 8,
               }}>
-                STACK
+                {t('modal.stack')}
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20 }}>
                 {project.stack.map((s) => (
@@ -200,7 +211,7 @@ export function ProjectModal() {
                 letterSpacing: '0.2em',
                 marginBottom: 8,
               }}>
-                PREVIEW
+                {t('modal.preview')}
               </p>
               {project.screenshots && project.screenshots.length > 0 ? (
                 <div style={{
@@ -213,7 +224,7 @@ export function ProjectModal() {
                     <img
                       key={i}
                       src={src}
-                      alt={`${project.name} screenshot ${i + 1}`}
+                      alt={`${project.name} ${t('modal.screenshot')} ${i + 1}`}
                       style={{
                         width: '100%',
                         aspectRatio: '16/9',
@@ -249,7 +260,7 @@ export function ProjectModal() {
                         fontSize: 9,
                         color: 'rgba(0,200,224,0.2)',
                       }}>
-                        screenshot {i + 1}
+                        {t('modal.screenshot')} {i + 1}
                       </span>
                     </div>
                   ))}
@@ -281,7 +292,7 @@ export function ProjectModal() {
                     textDecoration: 'none',
                   }}
                 >
-                  ↗ Ver ao vivo
+                  {t('modal.live')}
                 </a>
               )}
 
@@ -349,6 +360,7 @@ export function ProjectModal() {
               </span>
             </div>
           </motion.div>
+          </div>
         </>
       )}
     </AnimatePresence>

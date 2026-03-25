@@ -44,15 +44,15 @@ export function Scene() {
         <CameraRig />
 
         <MonitorStation
-          position={[-20, 1, -10]}
+          position={[-20, 14, -10]}
           projects={[PROJECTS[0], PROJECTS[1]]}
         />
         <MonitorStation
-          position={[-30, 1, -50]}
+          position={[-30, 14, -50]}
           projects={[PROJECTS[2], PROJECTS[3]]}
         />
         <MonitorStation
-          position={[-15, 1, -90]}
+          position={[-15, 14, -90]}
           projects={[PROJECTS[4], PROJECTS[5]]}
         />
 

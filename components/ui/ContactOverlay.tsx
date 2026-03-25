@@ -1,9 +1,11 @@
 'use client'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useActiveSection } from '@/hooks/useActiveSection'
+import { useI18n } from '@/lib/i18n'
 
 export function ContactOverlay() {
   const active = useActiveSection() === 'contact'
+  const { t } = useI18n()
 
   return (
     <AnimatePresence>
@@ -26,10 +28,10 @@ export function ContactOverlay() {
           }}
         >
           <p style={{ fontFamily: 'monospace', fontSize: 11, color: '#00c8e0', letterSpacing: '0.3em', marginBottom: 16 }}>
-            CONTACT
+            {t('contact.label')}
           </p>
           <h2 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, color: '#fff', marginBottom: 24 }}>
-            Let&apos;s build something.
+            {t('contact.heading')}
           </h2>
           <div style={{ display: 'flex', gap: 24, justifyContent: 'center', flexWrap: 'wrap', pointerEvents: 'auto' }}>
             <a

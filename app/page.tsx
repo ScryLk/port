@@ -8,6 +8,7 @@ import { ContactOverlay } from '@/components/ui/ContactOverlay'
 import { LoadingScreen } from '@/components/ui/LoadingScreen'
 import { ProjectModal } from '@/components/ui/ProjectModal'
 import { SectionNav } from '@/components/ui/SectionNav'
+import { LangSwitch } from '@/components/ui/LangSwitch'
 
 const Scene = dynamic(
   () => import('@/components/scene/Scene').then(mod => ({ default: mod.Scene })),
@@ -30,6 +31,7 @@ export default function Home() {
         <ContactOverlay />
       </div>
       <SectionNav />
+      <LangSwitch />
       <ProjectModal />
     </>
   )
