@@ -7,9 +7,9 @@ import { useScroll } from '@/components/providers/ScrollProvider'
 const WAYPOINTS: [number[], number[]][] = [
   [[0, 18, 80],    [0, 5, 0]],        // hero
   [[-10, 10, 40],  [-5, 4, 0]],       // about
-  [[-12, 16, 0],   [-20, 14, -10]],   // work-a  → look at station 1
-  [[-22, 16, -40], [-30, 14, -50]],   // work-b  → look at station 2
-  [[-8, 16, -80],  [-15, 14, -90]],   // work-c  → look at station 3
+  [[-12, 16, 0],   [-20, 14, -10]],   // work-a → station 1
+  [[-22, 16, -40], [-30, 14, -50]],   // work-b → station 2
+  [[-8, 16, -80],  [-15, 14, -90]],   // work-c → station 3
   [[0, 12, -120],  [0, 5, -140]],     // stack
   [[10, 15, -160], [10, 4, -180]],    // contact
 ]

@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useActiveSection } from '@/hooks/useActiveSection'
 import { useI18n } from '@/lib/i18n'
+import { ProfileModal } from './ProfileModal'
 
 export function HeroOverlay() {
   const active = useActiveSection() === 'hero'
@@ -76,11 +77,13 @@ export function HeroOverlay() {
             {t('hero.subtitle')}
           </motion.p>
 
+          <ProfileModal />
+
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.4 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            style={{ fontFamily: 'monospace', fontSize: 10, color: '#00c8e0', marginTop: 28 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
+            style={{ fontFamily: 'monospace', fontSize: 10, color: '#00c8e0', marginTop: 20 }}
           >
             {t('hero.cta')}
           </motion.p>

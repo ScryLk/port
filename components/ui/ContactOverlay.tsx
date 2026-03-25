@@ -35,7 +35,7 @@ export function ContactOverlay() {
           </h2>
           <div style={{ display: 'flex', gap: 24, justifyContent: 'center', flexWrap: 'wrap', pointerEvents: 'auto' }}>
             <a
-              href="mailto:lucas@example.com"
+              href="mailto:keplerlucas7@gmail.com"
               style={{
                 fontFamily: 'monospace', fontSize: 13, color: '#00c8e0',
                 textDecoration: 'none', borderBottom: '1px solid rgba(0,200,224,0.3)',
@@ -57,7 +57,7 @@ export function ContactOverlay() {
               github
             </a>
             <a
-              href="https://linkedin.com/in/"
+              href="https://www.linkedin.com/in/lucas-kepler/"
               target="_blank"
               rel="noopener noreferrer"
               style={{

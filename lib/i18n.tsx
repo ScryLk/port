@@ -58,6 +58,7 @@ const translations: Record<Locale, Record<string, string>> = {
     'modal.preview': 'PREVIEW',
     'modal.screenshot': 'captura',
     'modal.live': '↗ Ver ao vivo',
+    'modal.demo': '▶ Demo',
     'modal.close': 'Fechar modal',
 
     // Projects
@@ -67,12 +68,23 @@ const translations: Record<Locale, Record<string, string>> = {
       'AI-powered IT support desktop assistant. Floating window com transcrição ao vivo via Gemini Live API e modo offline com Whisper.cpp. Sugestões de resolução em tempo real, sistema proprietário de API keys com rate limiting por tier e painel Connection Monitor.',
     'project.catana.description':
       'SaaS de catálogos digitais para distribuidoras de embalagem brasileiras. Editor Figma-like com layers panel, Monaco Editor integrado e geração de catálogos para clientes DiPack. Foco no mercado brasileiro de packaging.',
-    'project.mudea.description':
-      'Carteira digital de saúde. Pacientes centralizam histórico médico, exames e receitas em um único lugar. App mobile com sincronização offline e compartilhamento seguro com médicos via QR code.',
     'project.fleet-manager.description':
-      'Sistema de gestão de frotas para a Prefeitura Municipal de Panambi. Controle completo de veículos, manutenções preventivas, abastecimento e relatórios de utilização. Projeto de alto impacto desenvolvido durante estágio na Prefeitura.',
+      'Sistema de gestão de frotas para a Prefeitura Municipal de Panambi. Controle completo de veículos, manutenções preventivas, abastecimento e relatórios de utilização. Já registrou mais de 1.000 viagens. Projeto de alto impacto desenvolvido durante estágio na Prefeitura.',
     'project.helpdesk-central.description':
       'Sistema centralizado de suporte técnico para a Prefeitura de Panambi. Abertura de chamados, SLA automático, categorização por departamento e painel de gestão de atendimento. Substituiu processos manuais por fluxo digital completo.',
+    'project.precadastro-mcmv.description':
+      'Sistema de pré-cadastro do programa Minha Casa Minha Vida para a Prefeitura de Panambi. Inovação divulgada na mídia local que eliminou filas presenciais e facilitou o acesso dos cidadãos ao programa habitacional.',
+
+    // Profile
+    'profile.button': '[ sobre mim ]',
+    'profile.role': 'FULL STACK DEVELOPER',
+    'profile.city': 'CIDADE',
+    'profile.education': 'ESCOLARIDADE',
+    'profile.educationValue': 'Estudante de Sistemas para Internet — Instituto Federal Farroupilha, Campus Panambi',
+    'profile.age': 'IDADE',
+    'profile.years': 'anos',
+    'profile.gender': 'GÊNERO',
+    'profile.genderValue': 'Masculino',
 
     // Metadata
     'meta.title': 'Lucas | Desenvolvedor Full Stack',
@@ -124,6 +136,7 @@ const translations: Record<Locale, Record<string, string>> = {
     'modal.preview': 'PREVIEW',
     'modal.screenshot': 'screenshot',
     'modal.live': '↗ View live',
+    'modal.demo': '▶ Demo',
     'modal.close': 'Close modal',
 
     // Projects
@@ -133,12 +146,23 @@ const translations: Record<Locale, Record<string, string>> = {
       'AI-powered IT support desktop assistant. Floating window with live transcription via Gemini Live API and offline mode with Whisper.cpp. Real-time resolution suggestions, proprietary API key system with tier-based rate limiting, and Connection Monitor panel.',
     'project.catana.description':
       'Digital catalog SaaS for Brazilian packaging distributors. Figma-like editor with layers panel, integrated Monaco Editor, and catalog generation for DiPack clients. Focused on the Brazilian packaging market.',
-    'project.mudea.description':
-      'Digital health wallet. Patients centralize medical history, exams, and prescriptions in one place. Mobile app with offline sync and secure sharing with doctors via QR code.',
     'project.fleet-manager.description':
-      'Fleet management system for the Municipality of Panambi. Complete vehicle control, preventive maintenance, fueling, and usage reports. High-impact project developed during internship at the Municipality.',
+      'Fleet management system for the Municipality of Panambi. Complete vehicle control, preventive maintenance, fueling, and usage reports. Already logged over 1,000 trips. High-impact project developed during internship at the Municipality.',
     'project.helpdesk-central.description':
       'Centralized technical support system for the Municipality of Panambi. Ticket creation, automatic SLA, department categorization, and service management panel. Replaced manual processes with a complete digital workflow.',
+    'project.precadastro-mcmv.description':
+      'Pre-registration system for the Minha Casa Minha Vida housing program for the Municipality of Panambi. Innovation featured in local media that eliminated physical queues and streamlined citizen access to the housing program.',
+
+    // Profile
+    'profile.button': '[ about me ]',
+    'profile.role': 'FULL STACK DEVELOPER',
+    'profile.city': 'CITY',
+    'profile.education': 'EDUCATION',
+    'profile.educationValue': 'Internet Systems Student — Instituto Federal Farroupilha, Campus Panambi',
+    'profile.age': 'AGE',
+    'profile.years': 'years',
+    'profile.gender': 'GENDER',
+    'profile.genderValue': 'Male',
 
     // Metadata
     'meta.title': 'Lucas | Full Stack Developer',
@@ -151,9 +175,9 @@ const PROJECT_KEY_MAP: Record<string, string> = {
   'QuestBoard': 'project.questboard.description',
   'Teki': 'project.teki.description',
   'CATANA': 'project.catana.description',
-  'Mudea': 'project.mudea.description',
-  'Fleet Manager': 'project.fleet-manager.description',
+  'Frotas Panambi': 'project.fleet-manager.description',
   'Helpdesk Central': 'project.helpdesk-central.description',
+  'Pré-Cadastro MCMV': 'project.precadastro-mcmv.description',
 }
 
 export function getProjectDescriptionKey(projectName: string): string {

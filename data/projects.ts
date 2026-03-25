@@ -4,6 +4,7 @@ export interface ProjectData {
   stack: string[]
   url?: string
   github?: string
+  demo?: string
   color: string
   screenshots?: string[]
 }
@@ -44,18 +45,21 @@ export const PROJECTS: ProjectData[] = [
     screenshots: [],
   },
   {
-    name: 'Mudea',
+    name: 'Pré-Cadastro MCMV',
     description:
-      'Carteira digital de saúde. Pacientes centralizam histórico médico, exames e receitas em um único lugar. App mobile com sincronização offline e compartilhamento seguro com médicos via QR code.',
-    stack: ['React Native', 'Expo', 'Fastify', 'PostgreSQL'],
+      'Sistema de pré-cadastro do programa Minha Casa Minha Vida para a Prefeitura de Panambi. Inovação divulgada na mídia local que eliminou filas presenciais e facilitou o acesso dos cidadãos ao programa habitacional.',
+    stack: ['Java', 'Spring Boot', 'PostgreSQL'],
+    demo: 'https://www.loom.com/share/91d8f84a4f074d029f89c8634807ba53',
     color: '#00c8e0',
     screenshots: [],
   },
   {
-    name: 'Fleet Manager',
+    name: 'Frotas Panambi',
     description:
-      'Sistema de gestão de frotas para a Prefeitura Municipal de Panambi. Controle completo de veículos, manutenções preventivas, abastecimento e relatórios de utilização. Projeto de alto impacto desenvolvido durante estágio na Prefeitura.',
+      'Sistema de gestão de frotas para a Prefeitura Municipal de Panambi. Controle completo de veículos, manutenções preventivas, abastecimento e relatórios de utilização. Já registrou mais de 1.000 viagens. Projeto de alto impacto desenvolvido durante estágio na Prefeitura.',
     stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Swing'],
+    github: 'github.com/ScryLk/frotas-back',
+    demo: 'https://www.loom.com/share/daa122b39db440ed8ecddb6185ea9b29',
     color: '#00c8e0',
     screenshots: [],
   },

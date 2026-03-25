@@ -204,68 +204,6 @@ export function ProjectModal() {
                 ))}
               </div>
 
-              <p style={{
-                fontFamily: 'var(--font-mono), monospace',
-                fontSize: 9,
-                color: '#00c8e0',
-                letterSpacing: '0.2em',
-                marginBottom: 8,
-              }}>
-                {t('modal.preview')}
-              </p>
-              {project.screenshots && project.screenshots.length > 0 ? (
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: 8,
-                  marginBottom: 20,
-                }}>
-                  {project.screenshots.map((src, i) => (
-                    <img
-                      key={i}
-                      src={src}
-                      alt={`${project.name} ${t('modal.screenshot')} ${i + 1}`}
-                      style={{
-                        width: '100%',
-                        aspectRatio: '16/9',
-                        objectFit: 'cover',
-                        borderRadius: 6,
-                        border: '0.5px solid rgba(0,200,224,0.15)',
-                      }}
-                    />
-                  ))}
-                </div>
-              ) : (
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: 8,
-                  marginBottom: 20,
-                }}>
-                  {[0, 1].map((i) => (
-                    <div
-                      key={i}
-                      style={{
-                        background: '#020c18',
-                        borderRadius: 6,
-                        border: '0.5px solid rgba(0,200,224,0.12)',
-                        aspectRatio: '16/9',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      <span style={{
-                        fontFamily: 'var(--font-mono), monospace',
-                        fontSize: 9,
-                        color: 'rgba(0,200,224,0.2)',
-                      }}>
-                        {t('modal.screenshot')} {i + 1}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Footer */}
@@ -293,6 +231,32 @@ export function ProjectModal() {
                   }}
                 >
                   {t('modal.live')}
+                </a>
+              )}
+
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontFamily: 'var(--font-mono), monospace',
+                    fontSize: 11,
+                    padding: '7px 16px',
+                    borderRadius: 5,
+                    background: 'rgba(0,200,224,0.1)',
+                    border: '0.5px solid rgba(0,200,224,0.4)',
+                    color: '#00c8e0',
+                    textDecoration: 'none',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 6,
+                  }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  {t('modal.demo')}
                 </a>
               )}
 
