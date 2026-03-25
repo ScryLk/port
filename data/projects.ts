@@ -30,6 +30,7 @@ export const PROJECTS: ProjectData[] = [
     stack: ['Electron', 'Next.js', 'Gemini API', 'Whisper.cpp', 'Clerk', 'Socket.IO', 'Recharts'],
     url: 'tekiia.com',
     github: 'github.com/ScryLk/teki',
+    demo: 'https://www.loom.com/share/c1324546bd25454087e79b2f7ee8f50f',
     color: '#00c8e0',
     screenshots: [
       '/screenshots/teki-1.png',
