@@ -214,26 +214,6 @@ export function ProjectModal() {
               gap: 10,
               alignItems: 'center',
             }}>
-              {project.url && (
-                <a
-                  href={`https://${project.url}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontFamily: 'var(--font-mono), monospace',
-                    fontSize: 11,
-                    padding: '7px 16px',
-                    borderRadius: 5,
-                    background: 'rgba(0,200,224,0.1)',
-                    border: '0.5px solid rgba(0,200,224,0.4)',
-                    color: '#00c8e0',
-                    textDecoration: 'none',
-                  }}
-                >
-                  {t('modal.live')}
-                </a>
-              )}
-
               {project.demo && (
                 <a
                   href={project.demo}

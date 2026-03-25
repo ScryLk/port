@@ -70,8 +70,8 @@ const translations: Record<Locale, Record<string, string>> = {
       'SaaS de catálogos digitais para distribuidoras de embalagem brasileiras. Editor Figma-like com layers panel, Monaco Editor integrado e geração de catálogos para clientes DiPack. Foco no mercado brasileiro de packaging.',
     'project.fleet-manager.description':
       'Sistema de gestão de frotas para a Prefeitura Municipal de Panambi. Controle completo de veículos, manutenções preventivas, abastecimento e relatórios de utilização. Já registrou mais de 1.000 viagens. Projeto de alto impacto desenvolvido durante estágio na Prefeitura.',
-    'project.helpdesk-central.description':
-      'Sistema centralizado de suporte técnico para a Prefeitura de Panambi. Abertura de chamados, SLA automático, categorização por departamento e painel de gestão de atendimento. Substituiu processos manuais por fluxo digital completo.',
+    'project.dipack.description':
+      'Site institucional para a DiPack Embalagens, distribuidora de embalagens do sul do Brasil. Landing page moderna com catálogo de produtos, formulário de contato e design responsivo.',
     'project.precadastro-mcmv.description':
       'Sistema de pré-cadastro do programa Minha Casa Minha Vida para a Prefeitura de Panambi. Inovação divulgada na mídia local que eliminou filas presenciais e facilitou o acesso dos cidadãos ao programa habitacional.',
 
@@ -148,8 +148,8 @@ const translations: Record<Locale, Record<string, string>> = {
       'Digital catalog SaaS for Brazilian packaging distributors. Figma-like editor with layers panel, integrated Monaco Editor, and catalog generation for DiPack clients. Focused on the Brazilian packaging market.',
     'project.fleet-manager.description':
       'Fleet management system for the Municipality of Panambi. Complete vehicle control, preventive maintenance, fueling, and usage reports. Already logged over 1,000 trips. High-impact project developed during internship at the Municipality.',
-    'project.helpdesk-central.description':
-      'Centralized technical support system for the Municipality of Panambi. Ticket creation, automatic SLA, department categorization, and service management panel. Replaced manual processes with a complete digital workflow.',
+    'project.dipack.description':
+      'Institutional website for DiPack Embalagens, a packaging distributor in southern Brazil. Modern landing page with product catalog, contact form, and responsive design.',
     'project.precadastro-mcmv.description':
       'Pre-registration system for the Minha Casa Minha Vida housing program for the Municipality of Panambi. Innovation featured in local media that eliminated physical queues and streamlined citizen access to the housing program.',
 
@@ -176,7 +176,7 @@ const PROJECT_KEY_MAP: Record<string, string> = {
   'Teki': 'project.teki.description',
   'CATANA': 'project.catana.description',
   'Frotas Panambi': 'project.fleet-manager.description',
-  'Helpdesk Central': 'project.helpdesk-central.description',
+  'DiPack Embalagens': 'project.dipack.description',
   'Pré-Cadastro MCMV': 'project.precadastro-mcmv.description',
 }
 

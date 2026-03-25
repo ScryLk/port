@@ -49,7 +49,7 @@ export const PROJECTS: ProjectData[] = [
     name: 'Pré-Cadastro MCMV',
     description:
       'Sistema de pré-cadastro do programa Minha Casa Minha Vida para a Prefeitura de Panambi. Inovação divulgada na mídia local que eliminou filas presenciais e facilitou o acesso dos cidadãos ao programa habitacional.',
-    stack: ['Java', 'Spring Boot', 'PostgreSQL'],
+    stack: ['React', 'Tailwind CSS', 'Django'],
     demo: 'https://www.loom.com/share/91d8f84a4f074d029f89c8634807ba53',
     color: '#00c8e0',
     screenshots: [],
@@ -58,17 +58,18 @@ export const PROJECTS: ProjectData[] = [
     name: 'Frotas Panambi',
     description:
       'Sistema de gestão de frotas para a Prefeitura Municipal de Panambi. Controle completo de veículos, manutenções preventivas, abastecimento e relatórios de utilização. Já registrou mais de 1.000 viagens. Projeto de alto impacto desenvolvido durante estágio na Prefeitura.',
-    stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Swing'],
+    stack: ['React', 'Tailwind CSS', 'Django'],
     github: 'github.com/ScryLk/frotas-back',
     demo: 'https://www.loom.com/share/daa122b39db440ed8ecddb6185ea9b29',
     color: '#00c8e0',
     screenshots: [],
   },
   {
-    name: 'Helpdesk Central',
+    name: 'DiPack Embalagens',
     description:
-      'Sistema centralizado de suporte técnico para a Prefeitura de Panambi. Abertura de chamados, SLA automático, categorização por departamento e painel de gestão de atendimento. Substituiu processos manuais por fluxo digital completo.',
-    stack: ['Java', 'Swing', 'JDBC', 'PostgreSQL'],
+      'Site institucional para a DiPack Embalagens, distribuidora de embalagens do sul do Brasil. Landing page moderna com catálogo de produtos, formulário de contato e design responsivo.',
+    stack: ['Next.js', 'Tailwind CSS'],
+    url: 'dipackembalagens.com',
     color: '#00c8e0',
     screenshots: [],
   },
