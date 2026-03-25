@@ -13,7 +13,7 @@ export const PROJECTS: ProjectData[] = [
   {
     name: 'QuestBoard',
     description:
-      'VTT platform mobile-first para RPG de mesa. GMs criam campanhas, mapas e fichas de personagem; players acessam via web sem instalar nada. Sistema de tokens com pathfinding A*, fog of war, combate em tempo real via Socket.IO e sistema de som com Web Audio API.',
+      'Plataforma VTT mobile-first para RPG de mesa. GMs criam campanhas, mapas e fichas de personagem; jogadores acessam via web sem instalar nada. Sistema de tokens com pathfinding A*, fog of war, combate em tempo real via Socket.IO e sistema de som com Web Audio API.',
     stack: ['Expo 52', 'React Three Fiber', 'Socket.IO', 'Fastify 5', 'Prisma 6', 'PostgreSQL', 'Redis', 'Clerk'],
     url: 'questboard.gg',
     github: 'github.com/ScryLk/questboard',
@@ -26,7 +26,7 @@ export const PROJECTS: ProjectData[] = [
   {
     name: 'Teki',
     description:
-      'AI-powered IT support desktop assistant. Floating window com transcrição ao vivo via Gemini Live API e modo offline com Whisper.cpp. Sugestões de resolução em tempo real, sistema proprietário de API keys com rate limiting por tier e painel Connection Monitor.',
+      'Assistente desktop de suporte de TI com inteligência artificial. Janela flutuante com transcrição ao vivo via Gemini Live API e modo offline com Whisper.cpp. Sugestões de resolução em tempo real, sistema próprio de API keys com rate limiting por tier e painel Connection Monitor.',
     stack: ['Electron', 'Next.js', 'Gemini API', 'Whisper.cpp', 'Clerk', 'Socket.IO', 'Recharts'],
     url: 'tekiia.com',
     github: 'github.com/ScryLk/teki',
