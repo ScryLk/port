@@ -12,7 +12,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'Lucas | Desenvolvedor Full Stack',
-  description: 'Portfólio — Desenvolvedor Full Stack de Panambi, BR. Criando experiências web imersivas com React, Three.js e Node.js.',
+  description: 'Portfólio — Desenvolvedor Full Stack de Panambi, BR.',
 }
 
 export default function RootLayout({
