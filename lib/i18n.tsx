@@ -85,6 +85,8 @@ const translations: Record<Locale, Record<string, string>> = {
     'profile.years': 'anos',
     'profile.gender': 'GÊNERO',
     'profile.genderValue': 'Masculino',
+    'profile.downloadCV': 'Baixar Currículo',
+    'profile.cvLang': 'PDF em português',
 
     // Metadata
     'meta.title': 'Lucas | Desenvolvedor Full Stack',
@@ -163,6 +165,8 @@ const translations: Record<Locale, Record<string, string>> = {
     'profile.years': 'years',
     'profile.gender': 'GENDER',
     'profile.genderValue': 'Male',
+    'profile.downloadCV': 'Download Resume',
+    'profile.cvLang': 'PDF in English',
 
     // Metadata
     'meta.title': 'Lucas | Full Stack Developer',

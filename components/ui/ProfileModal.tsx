@@ -1,11 +1,11 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useI18n } from '@/lib/i18n'
+import { useI18n, type Locale } from '@/lib/i18n'
 
 export function ProfileModal() {
   const [isOpen, setIsOpen] = useState(false)
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
 
   const close = useCallback(() => setIsOpen(false), [])
 
@@ -205,6 +205,59 @@ export function ProfileModal() {
                 </div>
 
                 <div style={{ height: 1, background: 'rgba(0,200,224,0.1)', margin: '0 28px' }} />
+
+                {/* Download CV */}
+                <div style={{
+                  padding: '18px 28px 0',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 8,
+                }}>
+                  <a
+                    href={locale === 'pt' ? '/cv.pdf' : '/cn_en.pdf'}
+                    download
+                    style={{
+                      fontFamily: 'var(--font-mono), monospace',
+                      fontSize: 11,
+                      padding: '10px 24px',
+                      borderRadius: 6,
+                      background: 'rgba(0,200,224,0.1)',
+                      border: '0.5px solid rgba(0,200,224,0.4)',
+                      color: '#00c8e0',
+                      textDecoration: 'none',
+                      transition: 'all 0.2s',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      width: 'fit-content',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(0,200,224,0.18)'
+                      e.currentTarget.style.borderColor = 'rgba(0,200,224,0.6)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(0,200,224,0.1)'
+                      e.currentTarget.style.borderColor = 'rgba(0,200,224,0.4)'
+                    }}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    {t('profile.downloadCV')}
+                  </a>
+                  <p style={{
+                    fontFamily: 'var(--font-mono), monospace',
+                    fontSize: 9,
+                    color: 'rgba(0,200,224,0.3)',
+                  }}>
+                    {t('profile.cvLang')}
+                  </p>
+                </div>
+
+                <div style={{ height: 1, background: 'rgba(0,200,224,0.1)', margin: '14px 28px 0' }} />
 
                 {/* Social links */}
                 <div style={{
