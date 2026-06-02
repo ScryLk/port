@@ -215,7 +215,7 @@ export function ProfileModal() {
                   gap: 8,
                 }}>
                   <a
-                    href={locale === 'pt' ? '/cv.pdf' : '/cn_en.pdf'}
+                    href={locale === 'pt' ? '/cv.pdf' : '/cv_en.pdf'}
                     download
                     style={{
                       fontFamily: 'var(--font-mono), monospace',
